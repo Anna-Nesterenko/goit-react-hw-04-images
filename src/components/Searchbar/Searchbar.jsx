@@ -1,6 +1,7 @@
 // import { Formik, Form, Field } from 'formik';
 import { Component } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { Field, BtnSearch, WrapperHeader } from './SearchBar.styled';
 
 class SearchBar extends Component {
   state = {
@@ -20,13 +21,12 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <header>
+      <WrapperHeader>
         <form onSubmit={this.handleSubmit}>
-          <button type="submit">
-            <FiSearch style={{ marginRight: 5 }}></FiSearch>
-            Search
-          </button>
-          <input
+          <BtnSearch type="submit">
+            <FiSearch style={{ marginTop: 3 }}></FiSearch>
+          </BtnSearch>
+          <Field
             name="searchQuery"
             type="text"
             autoComplete="off"
@@ -36,7 +36,7 @@ class SearchBar extends Component {
             placeholder="Search images..."
           />
         </form>
-      </header>
+      </WrapperHeader>
     );
   }
 }
