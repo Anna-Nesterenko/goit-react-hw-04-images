@@ -2,6 +2,7 @@ import { Component } from 'react';
 import getImages from 'services/services';
 import ImageGallery from './ImageGallery';
 import SearchBar from './SearchBar';
+
 export class App extends Component {
   state = {
     images: [],
