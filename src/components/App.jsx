@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import getImages from 'services/services';
 import ImageGallery from './ImageGallery';
-import Searchbar from './Searchbar';
+import SearchBar from './Searchbar';
 
 export class App extends Component {
   state = {
@@ -34,7 +34,7 @@ export class App extends Component {
     const { images } = this.state;
     return (
       <>
-        <Searchbar onSubmit={this.handleFormSubmit} />
+        <SearchBar onSubmit={this.handleFormSubmit} />
         <ImageGallery pictures={images} />
       </>
     );
