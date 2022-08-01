@@ -6,20 +6,35 @@ import Searchbar from './Searchbar';
 export class App extends Component {
   state = {
     images: [],
+    searchQuery: '',
+    page: 1,
   };
 
-  async componentDidMount() {
-    const { hits } = await getImages();
-    this.setState({
-      images: hits,
-    });
+  componentDidUpdate(_, { searchQuery }) {
+    if (searchQuery !== this.state.searchQuery) {
+      this.getData();
+    }
   }
+
+  async getData() {
+    const { searchQuery, page } = this.state;
+    const { hits } = await getImages(searchQuery, page);
+    this.setState(({ images }) => ({ images: [...images, ...hits] }));
+  }
+
+  handleFormSubmit = query => {
+    this.setState({
+      images: [],
+      searchQuery: query,
+      page: 1,
+    });
+  };
 
   render() {
     const { images } = this.state;
     return (
       <>
-        <Searchbar onSubmit={console.log} />
+        <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery pictures={images} />
       </>
     );
