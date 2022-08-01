@@ -1,8 +1,7 @@
 // import { Formik, Form, Field } from 'formik';
 import { Component } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { Field, BtnSearch, WrapperHeader } from './SearchBar.styled';
-
+import { WrapperHeader, BtnSearch, Field } from './SearchBar.styled';
 class SearchBar extends Component {
   state = {
     searchQuery: '',
