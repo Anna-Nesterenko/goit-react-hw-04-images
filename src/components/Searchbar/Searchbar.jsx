@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { WrapperHeader, Field, BtnSearch } from './SearchBar.styled';
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   state = {
     searchQuery: '',
   };
@@ -41,4 +41,4 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+// export default SearchBar;
