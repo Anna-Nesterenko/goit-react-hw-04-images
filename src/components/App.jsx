@@ -2,7 +2,7 @@ import { Component } from 'react';
 import getImages from 'services/services';
 import ImageGallery from './ImageGallery';
 // import SearchBar from './SearchBar';
-import { SearchBar } from './SearchBar/SearchBar';
+import { SearchBar } from './Search/SearchBar';
 
 export class App extends Component {
   state = {
