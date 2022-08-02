@@ -17,6 +17,6 @@ const Gallery = styled.ul`
   margin: 75px auto 15px;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, max-content));
+  grid-template-columns: repeat(auto-fill, minmax(300px, max-content));
   grid-gap: 20px;
 `;

@@ -10,7 +10,7 @@ export class SearchBar extends Component {
 
   handleNameChange = event => {
     const { name, value } = event.currentTarget;
-    this.setState({ [name]: value.toLowerCase() });
+    this.setState({ [name]: value.toLowerCase().trim() });
   };
 
   handleSubmit = event => {

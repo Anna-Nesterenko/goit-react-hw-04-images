@@ -14,7 +14,7 @@ export const WrapperHeader = styled.header`
 export const Field = styled.input`
   width: 100%;
   height: 40px;
-  padding-left: 55px;
+  padding-left: 45px;
   border: 3px solid #e06666;
   border-radius: 20px;
   outline: none;
