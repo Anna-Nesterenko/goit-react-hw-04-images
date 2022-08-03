@@ -16,48 +16,64 @@ export class App extends Component {
   };
 
   /*відрісовка зображень по пошуку*/
-  componentDidUpdate(_, { searchQuery, page }) {
-    if (searchQuery !== this.state.searchQuery) {
-      this.getData();
-    }
-    if (page !== this.state.page) {
-      this.getData();
-    }
-  }
+  //   componentDidUpdate(_, { page }) {
+  //  if (searchQuery !== this.state.searchQuery) {
+  //    this.getData();
+  //  }
+  //     if (page !== this.state.page) {
+  //       this.getData();
+  //     }
+  //   }
 
   /*відрісовка зображень з бекенда*/
-  getData = async () => {
-    try {
-      this.setState({ isLoader: true });
-      const { searchQuery, page } = this.state;
-      const { hits } = await getImages(searchQuery, page);
-
-      this.setState(({ images }) => ({
-        images: [...images, ...hits],
-        isLoader: false,
-      }));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  /*перша сторінка*/
-  handleFormSubmit = query => {
+  getData = async searchQuery => {
+    //  console.log('search :>> ', searchQuery);
+    this.setState({ isLoader: true });
+    const { page } = this.state;
+    const { hits } = await getImages(searchQuery, page);
+    //  console.log(hits);
     this.setState({
-      images: [],
-      searchQuery: query,
-      page: 1,
+      images: hits,
+      searchQuery,
+      isLoader: false,
     });
   };
 
+  /*перша сторінка*/
+  //   handleFormSubmit = query => {
+  //     this.setState({
+  //       images: [],
+  //       searchQuery: query,
+  //       page: 1,
+  //     });
+  //   };
+
   /*додає наступну сторінку*/
-  addNextPage = () => {
+  addNextPage = async () => {
     this.setState(({ page }) => ({
       page: page + 1,
     }));
+    const { searchQuery, page } = this.state;
+    const { hits } = await getImages(searchQuery, page);
+
+    this.setState(({ images }) => ({
+      images: [...images, ...hits],
+      isLoader: false,
+    }));
+    console.log('hits :>> ', hits);
+    console.log('images :>> ', this.state.images);
   };
 
+  //   addNextPage = () => {
+  //     this.setState(({ page }) => ({
+  //       page: page + 1,
+  //     }));
+  //     console.log('page :>> ', this.state.page);
+  //   };
+
   render() {
+    //  console.log('images :>> ', this.state.images);
+
     const { images, isLoader, page } = this.state;
 
     const isNotLastPage = images.length / page === 12;
@@ -69,7 +85,7 @@ export class App extends Component {
 
     return (
       <>
-        <SearchBar onSubmit={this.handleFormSubmit} />
+        <SearchBar onSubmit={this.getData} />
         <ToastContainer
           style={{ top: '5em' }}
           position="top-center"

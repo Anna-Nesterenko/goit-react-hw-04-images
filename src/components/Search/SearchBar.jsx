@@ -15,14 +15,14 @@ export class SearchBar extends Component {
     this.setState({ [name]: value.toLowerCase().trim() });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
     if (this.state.searchQuery === '') {
       toast.warning('Sorry, your field is empty. Enter search name');
       return;
     }
 
-    this.props.onSubmit(this.state.searchQuery);
+    await this.props.onSubmit(this.state.searchQuery);
     this.setState({ searchQuery: '' });
   };
 
