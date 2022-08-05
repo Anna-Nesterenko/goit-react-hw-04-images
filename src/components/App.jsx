@@ -22,8 +22,14 @@ export class App extends Component {
     this.setState(({ isLoader }) => ({ isLoader: !isLoader }));
   };
 
-  //   toggleModal = () => {
-  //     this.setState(({ showModal }) => ({ showModal: !showModal }));
+  //   handleScroll = () => {
+  //     const { height: cardHeight } = document
+  //       .querySelector('#root')
+  //       .firstElementChild.getBoundingClientRect();
+  //     window.scrollTo({
+  //       top: cardHeight * 1.5,
+  //       behavior: 'smooth',
+  //     });
   //   };
 
   handleFormSubmit = searchName => {
@@ -52,6 +58,7 @@ export class App extends Component {
       await this.setState(({ images }) => ({
         images: [...images, ...hits],
       }));
+      // this.handleScroll();
     } catch (error) {
       console.log(error);
     } finally {

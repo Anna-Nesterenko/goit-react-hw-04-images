@@ -20,33 +20,9 @@ const ImageGallery = ({ pictures, onImgClick }) => {
 };
 
 export default ImageGallery;
-// friends: PropTypes.arrayOf(
-//   PropTypes.exact({
-//     id: PropTypes.number.isRequired,
-//     name: PropTypes.string.isRequired,
-//     isOnline: PropTypes.bool.isRequired,
-//     avatar: PropTypes.string.isRequired,
-//   })
-// ).isRequired,
 
-// friends: PropTypes.arrayOf(
-//   PropTypes.exact({
-//     id: PropTypes.number.isRequired,
-//     name: PropTypes.string.isRequired,
-//     isOnline: PropTypes.bool.isRequired,
-//     avatar: PropTypes.string.isRequired,
-//   })
-// ).isRequired,
 ImageGallery.propTypes = {
-  pictures: PropTypes.object(
-    PropTypes.exact({
-      id: PropTypes.number.isRequired,
-      webformatURL: PropTypes.string.isRequired,
-      largeImageURL: PropTypes.string.isRequired,
-      tags: PropTypes.string.isRequired,
-    })
-  ),
-
+  pictures: PropTypes.array.isRequired,
   onImgClick: PropTypes.func.isRequired,
 };
 

@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 const modalRoot = document.querySelector('#modal-root');
 class Modal extends Component {
   static propTypes = {
-    handleBackdropClick: PropTypes.func.isRequired,
-    children: PropTypes.element.isRequired,
+     onCloseModal: PropTypes.func.isRequired,
+     children: PropTypes.element.isRequired,
   };
 
   componentDidMount() {

@@ -12,8 +12,7 @@ export class SearchBar extends Component {
   };
 
   static propTypes = {
-    handleNameChange: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired,
+     onSubmit: PropTypes.func.isRequired,
   };
 
   handleNameChange = event => {
