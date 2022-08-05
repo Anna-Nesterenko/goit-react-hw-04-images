@@ -1,11 +1,18 @@
 import ImageGalleryItem from 'components/ImageGalleryItem';
 import styled from 'styled-components';
 
-const ImageGallery = ({ pictures }) => {
+const ImageGallery = ({ pictures, onImgClick }) => {
+  //   console.log('onImgClick :>> ', onImgClick);
   return (
     <Gallery>
-      {pictures.map(({ id, webformatURL }) => (
-        <ImageGalleryItem key={id} webformatURL={webformatURL} />
+      {pictures.map(({ id, webformatURL, largeImageURL, tags }) => (
+        <ImageGalleryItem
+          key={id}
+          webformatURL={webformatURL}
+          largeImageURL={largeImageURL}
+          onOpenImg={onImgClick}
+          tags={tags}
+        />
       ))}
     </Gallery>
   );

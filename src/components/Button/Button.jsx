@@ -23,7 +23,8 @@ const LoadMore = styled.button`
   cursor: pointer;
   box-shadow: 0 1px 3px #0003, 0 1px 1px #00000024, 0 2px 1px -1px #0000001f;
 
-  /* &:hover {
+  &:hover {
     background-color: #cc0000;
-  } */
+    box-shadow: 0 0 10px #e06666, 0 0 20px #cc0000, 0 0 40px #e06666;
+  }
 `;

@@ -7,23 +7,25 @@ import { WrapperHeader, Field, BtnSearch } from './SearchBar.styled';
 
 export class SearchBar extends Component {
   state = {
-    searchQuery: '',
+    searchName: '',
   };
 
   handleNameChange = event => {
-    const { name, value } = event.currentTarget;
-    this.setState({ [name]: value.toLowerCase().trim() });
+    //  const { name, value } = event.currentTarget;
+    this.setState({
+      searchName: event.currentTarget.value.toLowerCase().trim(),
+    });
   };
 
   handleSubmit = async event => {
     event.preventDefault();
-    if (this.state.searchQuery === '') {
+    if (this.state.searchName === '') {
       toast.warning('Sorry, your field is empty. Enter search name');
       return;
     }
 
-    await this.props.onSubmit(this.state.searchQuery);
-    this.setState({ searchQuery: '' });
+    await this.props.onSubmit(this.state.searchName);
+    this.setState({ searchName: '' });
   };
 
   render() {
@@ -34,11 +36,11 @@ export class SearchBar extends Component {
             <FiSearch style={{ marginTop: 3 }}></FiSearch>
           </BtnSearch>
           <Field
-            name="searchQuery"
+            name="searchName"
             type="text"
             autoComplete="off"
             autoFocus
-            value={this.state.searchQuery}
+            value={this.state.searchName}
             onChange={this.handleNameChange}
             placeholder="Search images..."
           />
