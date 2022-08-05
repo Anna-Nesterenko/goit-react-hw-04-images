@@ -67,10 +67,12 @@ export class App extends Component {
 
   openModal = image => {
     this.setState({ contentModal: image, showModal: true });
+    document.documentElement.style.overflow = 'hidden';
   };
 
   closeModal = () => {
     this.setState({ contentModal: '', showModal: false });
+    document.documentElement.style.overflow = null;
   };
 
   render() {

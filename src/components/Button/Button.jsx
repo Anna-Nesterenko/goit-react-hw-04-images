@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export const Button = ({ onClickNextPage }) => {
   return (
@@ -28,3 +29,7 @@ const LoadMore = styled.button`
     box-shadow: 0 0 10px #e06666, 0 0 20px #cc0000, 0 0 40px #e06666;
   }
 `;
+
+Button.propTypes = {
+  onClickNextPage: PropTypes.func.isRequired,
+};

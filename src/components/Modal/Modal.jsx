@@ -1,17 +1,21 @@
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const modalRoot = document.querySelector('#modal-root');
 class Modal extends Component {
+  static propTypes = {
+    handleBackdropClick: PropTypes.func.isRequired,
+    children: PropTypes.element.isRequired,
+  };
+
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
-    //  document.documentElement.style.overflow = 'hidden';
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
-    //  document.documentElement.style.overflow = 'none';
   }
 
   handleKeyDown = e => {

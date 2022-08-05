@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ImageGalleryItem = ({ tags, webformatURL, largeImageURL, onOpenImg }) => {
   //   console.log('largeImageURL :>> ', largeImageURL);
@@ -18,6 +19,13 @@ const ImageGalleryItem = ({ tags, webformatURL, largeImageURL, onOpenImg }) => {
   );
 };
 export default ImageGalleryItem;
+
+ImageGalleryItem.propTypes = {
+  webformatURL: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  onOpenImg: PropTypes.func.isRequired,
+};
 
 const PhotoCard = styled.li`
   display: grid;

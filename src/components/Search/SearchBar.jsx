@@ -4,10 +4,16 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FiSearch } from 'react-icons/fi';
 import { WrapperHeader, Field, BtnSearch } from './SearchBar.styled';
+import PropTypes from 'prop-types';
 
 export class SearchBar extends Component {
   state = {
     searchName: '',
+  };
+
+  static propTypes = {
+    handleNameChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
   };
 
   handleNameChange = event => {
