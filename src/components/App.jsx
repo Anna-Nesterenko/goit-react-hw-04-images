@@ -22,21 +22,14 @@ export class App extends Component {
     this.setState(({ isLoader }) => ({ isLoader: !isLoader }));
   };
 
-  //   handleScroll = () => {
-  //     const { height: cardHeight } = document
-  //       .querySelector('#root')
-  //       .firstElementChild.getBoundingClientRect();
-  //     window.scrollTo({
-  //       top: cardHeight * 1.5,
-  //       behavior: 'smooth',
-  //     });
-  //   };
-
   handleFormSubmit = searchName => {
+    if (this.state.searchQuery === searchName) return;
+
     this.setState({
       images: [],
       searchQuery: searchName,
       page: 1,
+      btnEnable: false,
     });
   };
 
@@ -110,88 +103,3 @@ export class App extends Component {
     );
   }
 }
-
-// import { Component } from 'react';
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import * as API from 'services/services';
-// import ImageGallery from './ImageGallery';
-// import { SearchBar } from './Search/SearchBar';
-// import { Loader } from './Loader/Loader';
-// import { Button } from './Button/Button';
-
-// export class App extends Component {
-//   state = {
-//     images: [],
-//     q: '',
-//     page: 1,
-//      isLoader: false,
-//   };
-
-/*відрісовка зображень з бекенда*/
-//   async componentDidMount() {
-//     const images = await API.getImages();
-//     this.setState({ images });
-//     console.log('images :>> ', images);
-//  this.setState({ isLoader: true });
-//  const { page } = this.state;
-//  const { hits } = await getImages(q, page);
-
-//  this.setState({
-//    images: hits,
-//    q,
-// isLoader: false,
-//  });
-//   }
-
-/*додає наступну сторінку*/
-//   addNextPage = async () => {
-//     await this.setState(({ page }) => ({
-//       page: page + 1,
-//     }));
-//     const { searchQuery, page } = this.state;
-//     const { hits } = await getImages(searchQuery, page);
-
-//     this.setState(({ images }) => ({
-//       images: [...images, ...hits],
-//       isLoader: false,
-//     }));
-//   };
-//   notify = () => {
-//     return toast(`We're sorry, but you've reached the end of search results`);
-//   };
-
-//   render() {
-//  console.log('images :>> ', this.state.images);
-
-//  const { images, isLoader, page } = this.state;
-
-//  const isNotLastPage = images.length / page === 12;
-//  const btnEnable = images.length > 0 && isNotLastPage;
-//  const lastPage = images.length > 0 && images.length / page !== 12;
-//  const notify = () =>
-//    toast(`We're sorry, but you've reached the end of search results`);
-
-//  return (
-//    <>
-//      <SearchBar onSubmit={this.getData} />
-//      <ImageGallery pictures={this.state.images} />
-//    </>
-//  );
-// {
-/* <ToastContainer
-          style={{ top: '5em' }}
-          position="top-center"
-          autoClose={2000}
-          theme="colored"
-        /> */
-// }
-// {
-/* {isLoader && <Loader />}
-        {btnEnable && <Button onClickNextPage={this.addNextPage} />} */
-// }
-// {
-/* {lastPage && this.notify} */
-// }
-//   }
-// }
