@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const ImageGalleryItem = ({ tags, webformatURL, largeImageURL, onOpenImg }) => {
-  //   console.log('largeImageURL :>> ', largeImageURL);
   return (
     <PhotoCard>
       <div>

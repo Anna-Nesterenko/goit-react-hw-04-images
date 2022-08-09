@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 export const Button = ({ onClickNextPage }) => {
+//   const scrollFunction = () => {
+//     onClickNextPage();
+//   };
+
   return (
     <BtnWrapper>
       <LoadMore onClick={onClickNextPage}>Load more</LoadMore>

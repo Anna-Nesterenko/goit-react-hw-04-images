@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const ImageGallery = ({ pictures, onImgClick }) => {
-  //   console.log('onImgClick :>> ', onImgClick);
   return (
     <Gallery>
       {pictures.map(({ id, webformatURL, largeImageURL, tags }) => (
