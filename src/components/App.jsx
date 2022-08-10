@@ -25,7 +25,7 @@ export function App() {
   //   /*з'єднання пошуку з SearchBar*/
   const handleFormSubmit = searchName => {
     if (searchQuery === searchName) return;
-    //  scroll.scrollToTop();
+
     setImages([]);
     setSearchQuery(searchName);
     setPage(1);
@@ -35,10 +35,8 @@ export function App() {
   //   /*відрісовка зображень по пошуку*/
   useEffect(() => {
     if (!searchQuery) return;
-    if (page === 1) {
-      scroll.scrollMore(50);
-    } else {
-      scroll.scrollMore(400);
+    if (page > 1) {
+      scroll.scrollMore(500);
     }
 
     const getData = async () => {
