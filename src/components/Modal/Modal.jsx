@@ -7,7 +7,7 @@ const modalRoot = document.querySelector('#modal-root');
 function Modal({ children, onCloseModal }) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
-    return window.removeEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   });
 
   const handleKeyDown = e => {
