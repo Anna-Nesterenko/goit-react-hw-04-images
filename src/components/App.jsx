@@ -25,6 +25,7 @@ export function App() {
   //   /*з'єднання пошуку з SearchBar*/
   const handleFormSubmit = searchName => {
     if (searchQuery === searchName) return;
+    //  scroll.scrollToTop();
     setImages([]);
     setSearchQuery(searchName);
     setPage(1);
@@ -34,6 +35,11 @@ export function App() {
   //   /*відрісовка зображень по пошуку*/
   useEffect(() => {
     if (!searchQuery) return;
+    if (page === 1) {
+      scroll.scrollMore(50);
+    } else {
+      scroll.scrollMore(400);
+    }
 
     const getData = async () => {
       try {
@@ -42,10 +48,8 @@ export function App() {
         if (hits.length < 1)
           toast.error('Sorry, this is not correct. Try it differently');
 
-        await setImages(prevState => [...prevState, ...hits]);
-        await setIsVisible(page < Math.ceil(total / hits.length));
-        //   scroll.scrollMore(500);
-        scroll.scrollToBottom();
+        setImages(prevState => [...prevState, ...hits]);
+        setIsVisible(page < Math.ceil(total / 12));
       } catch (error) {
         console.log(error);
       } finally {
