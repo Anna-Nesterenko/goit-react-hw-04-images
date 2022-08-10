@@ -35,8 +35,11 @@ export function App() {
   //   /*відрісовка зображень по пошуку*/
   useEffect(() => {
     if (!searchQuery) return;
-    if (page > 1) {
-      scroll.scrollMore(500);
+
+    if (page === 1) {
+      scroll.scrollMore(50);
+    } else {
+      scroll.scrollMore(400);
     }
 
     const getData = async () => {
