@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const WrapperHeader = styled.header`
   width: 100vw;
   height: 60px;
-  background-color: rgba(174, 157, 157, 0.7);
+  background: linear-gradient(45deg, #eaeaea, rgba(174, 157, 157, 0.7));
   align-items: center;
   display: flex;
   position: fixed;
@@ -18,7 +18,12 @@ export const Field = styled.input`
   border: 3px solid #e06666;
   border-radius: 20px;
   outline: none;
-  background-color: #fff2cc;
+  font-size: 16px;
+  background: linear-gradient(-45deg, rgba(174, 157, 157, 0.7), #eaeaea);
+  &:placeholder-shown {
+    color: grey;
+    font-size: 14px;
+  }
 `;
 
 export const BtnSearch = styled.button`
@@ -27,11 +32,11 @@ export const BtnSearch = styled.button`
   left: 0px;
   width: 45px;
   height: 40px;
-  background-color: #fff2cc;
+  /* background-color: #fff2cc; */
   border-style: solid hidden solid solid;
   border-width: 3px;
   border-color: #e06666;
-
+  background: linear-gradient(45deg, rgba(174, 157, 157, 0.7), #eaeaea);
   border-radius: 20px 0 0 20px;
   cursor: pointer;
 `;
