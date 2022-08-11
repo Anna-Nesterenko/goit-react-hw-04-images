@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Loader = () => {
   return (
     <HeartsWrapper>
-      <Hearts height="80" width="80" color="#e06666" />
+      <Hearts height="120" width="120" radius={15} color="#e06666" />
     </HeartsWrapper>
   );
 };

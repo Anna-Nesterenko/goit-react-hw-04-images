@@ -29,7 +29,6 @@ export function App() {
     setImages([]);
     setSearchQuery(searchName);
     setPage(1);
-    setIsVisible(false);
   };
 
   //   /*відрісовка зображень по пошуку*/
