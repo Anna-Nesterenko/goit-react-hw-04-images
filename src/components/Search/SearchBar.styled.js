@@ -19,7 +19,7 @@ export const Field = styled.input`
   border-radius: 20px;
   outline: none;
   font-size: 16px;
-  background: linear-gradient(-45deg, rgba(174, 157, 157, 0.7), #eaeaea);
+  background: rgba(234, 234, 234, 0.7);
   &:placeholder-shown {
     color: grey;
     font-size: 14px;
@@ -36,7 +36,7 @@ export const BtnSearch = styled.button`
   border-style: solid hidden solid solid;
   border-width: 3px;
   border-color: #e06666;
-  background: linear-gradient(45deg, rgba(174, 157, 157, 0.7), #eaeaea);
+  background: rgba(234, 234, 234, 0.3);
   border-radius: 20px 0 0 20px;
   cursor: pointer;
 `;
